@@ -27,5 +27,13 @@ To deal with shortcoming of hadoop, new tools like Hive, were build on top of ha
 - Hadoop Common
 
 
+## Hadoop Environment
+
+- *hadoop-env.sh* Serves as a master file to configure YARN, HDFS, MapReduce, and Hadoop-related project settings.
+- *core-site.xml* Defines HDFS and Hadoop core properties
+- *hdfs-site.xml* Governs the location for storing node metadata, fsimage file and log file.
+- *mapred-site-xml* Lists the parameters for MapReduce configuration.
+- *yarn-site.xml* Defines settings relevant to YARN. It contains configurations for the Node Manager, Resource Manager, Containers, and Application Master.
+
 
 
