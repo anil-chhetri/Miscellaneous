@@ -1,0 +1,9 @@
+{
+	"name": "adf-ingestion-transformation",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "78da47f4-b557-4fa5-8035-d67476277276",
+		"tenantId": "7680316a-5e9e-4cc5-a52e-9ee89ee8c404"
+	}
+}

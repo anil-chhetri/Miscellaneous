@@ -1,0 +1,102 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_datalake_dumploc",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSynapseAnalyticsTable1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "OnlySelectColumns"
+				},
+				{
+					"name": "MoviesAfter1950"
+				},
+				{
+					"name": "PrimaryMovieSelection"
+				},
+				{
+					"name": "RankedData"
+				},
+				{
+					"name": "AggregatedRatings"
+				},
+				{
+					"name": "UpsertRecords"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          movie as string,",
+				"          title as string,",
+				"          genres as string,",
+				"          year as string,",
+				"          Rating as string,",
+				"          {Rotton Tomato} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 select(mapColumn(",
+				"          movie,",
+				"          title,",
+				"          genres,",
+				"          year,",
+				"          Rotten = {Rotton Tomato}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> OnlySelectColumns",
+				"OnlySelectColumns filter(toInteger(year) > 1950) ~> MoviesAfter1950",
+				"MoviesAfter1950 derive(PrimaryGenres = split(genres, '|')[1]) ~> PrimaryMovieSelection",
+				"PrimaryMovieSelection window(over(PrimaryGenres,",
+				"          year),",
+				"     desc(Rotten, true),",
+				"     RatingRank = rank()) ~> RankedData",
+				"RankedData aggregate(groupBy(PrimaryGenres,",
+				"          year),",
+				"     AverageRatings = avg(toInteger(Rotten)),",
+				"          HigestRated = first(title),",
+				"          LowestRated = last(title),",
+				"          NumberOfMovies = count()) ~> AggregatedRatings",
+				"AggregatedRatings alterRow(upsertIf(true())) ~> UpsertRecords",
+				"UpsertRecords sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['PrimaryGenres','year'],",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          PrimaryGenres,",
+				"          year,",
+				"          AverageRatings,",
+				"          HigestRated,",
+				"          LowestRated,",
+				"          NumberOfMovies",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}
