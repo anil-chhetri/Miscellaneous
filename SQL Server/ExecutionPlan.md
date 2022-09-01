@@ -35,6 +35,9 @@ The following information is obtained by hovering the mouse tip over the operato
 
 #### XML Plan
 
+Once you have displayed a graphical plan, you can also easily display it in XML format. Simply right click
+anywhere on the execution plan window to display a pop-up menu
 
 
+![sql query](images/Execution%20plans%20options.PNG)
 
