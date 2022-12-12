@@ -1,0 +1,9 @@
+{
+	"name": "adfgitfactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "86598667-0cc7-4987-b4e5-c034cf82e4ae",
+		"tenantId": "38441fef-8bd2-41de-b698-dd6cfa5f65e8"
+	}
+}
