@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Movie.csv",
-				"fileSystem": "dmp-location-storage"
+				"fileName": "moviedb.csv",
+				"fileSystem": "rawdata"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
