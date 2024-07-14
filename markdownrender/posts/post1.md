@@ -53,7 +53,7 @@ RAG stands for:
 - **Over-Simplification**: May not capture the complexity of certain issues.
 - **Dependency on Accurate Data**: Requires reliable data for effective use.
 
-  ```js
+```js
 var add2 = function(number) {
   return number + 2;
 }
