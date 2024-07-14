@@ -119,6 +119,30 @@ footer {
 }
 
 
+pre {
+    position: relative;
+    background-color: #f8f9fa; /* Bootstrap's light background */
+    border: 1px solid #ced4da; /* Bootstrap's border color */
+    border-radius: 0.25rem; /* Bootstrap's border radius */
+    padding: 1rem; /* Bootstrap's padding */
+    overflow: auto;
+}
+
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+}
 
 
 

@@ -2,7 +2,12 @@ $(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const postName = urlParams.get('post');
 
+
+
     fetchPost(postName);
+
+    
+
 
     async function fetchPost(post) {
         const response = await fetch(`posts/${post}`);
@@ -14,9 +19,43 @@ $(document).ready(function () {
             const title = extractTitle(text);
             $('#post-title').text(title);
             $('#post-content').append(formatContent(text));
+            
+            AddCopyButtonToCodeSection()
+            
         } else {
             console.error(`Failed to load post: ${response.statusText}`);
         }
+    }
+
+
+    function AddCopyButtonToCodeSection()
+    {
+        const codeBlocks = document.querySelectorAll("[class^=language]");
+        console.log(codeBlocks)
+        Array.from(codeBlocks).forEach(codeBlock => {
+            const copyButton = document.createElement("button");
+            // copyButton.textContent = "";
+            copyButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+</svg>`
+            copyButton.className = "copy-button";
+            console.log('test')
+            const codeContainer = codeBlock.parentElement;
+            codeContainer.appendChild(copyButton);
+
+        
+            copyButton.addEventListener("click", function () {
+                const textToCopy = codeBlock.textContent;
+                navigator.clipboard.writeText(textToCopy).then(function () {
+                    copyButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+  <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"/>
+</svg>`
+                copyButton.className = 'copy-button btn-success'
+                }).catch(function (err) {
+                    console.error("Failed to copy: ", err);
+                });
+            });
+        });
     }
 
     function generateTOC(markdown) {
@@ -52,8 +91,6 @@ $(document).ready(function () {
             const hasTOC = content.includes('## Table of Contents');
             const toc = hasTOC ? '' : generateTOC(content);
             
-            console.log(hasTOC)
-
             if (header) {
                 content += `
                     <div class="card mb-3">
