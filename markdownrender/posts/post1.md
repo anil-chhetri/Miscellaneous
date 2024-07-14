@@ -53,6 +53,14 @@ RAG stands for:
 - **Over-Simplification**: May not capture the complexity of certain issues.
 - **Dependency on Accurate Data**: Requires reliable data for effective use.
 
+  ```js
+var add2 = function(number) {
+  return number + 2;
+}
+```
+
+
+
 ## Conclusion
 
 The RAG system is an effective tool for managing project health and risks, offering a simple yet powerful way to communicate status across teams. By understanding its components and implementation strategies, organizations can leverage RAG to enhance project outcomes.
