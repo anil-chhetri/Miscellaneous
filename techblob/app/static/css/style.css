@@ -1,0 +1,94 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-item {
+    background: #fff;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.post-item:hover {
+    transform: scale(1.05);
+}
+
+.post-item h2 {
+    margin: 0;
+}
+
+.post-item h2 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.post-content {
+    background: #fff;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.post-header h1 {
+    margin: 0;
+}
+
+.post-header .post-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.post-body {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.post-body p, .post-body ul, .post-body ol {
+    margin-bottom: 1rem;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 2rem;
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border: 1px solid #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background: #333;
+    color: #fff;
+}

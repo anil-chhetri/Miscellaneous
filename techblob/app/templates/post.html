@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<article class="post-content">
+    <div class="post-header">
+        <h1>{{ content.split('\n')[0].replace('# ', '') }}</h1>
+        <p class="post-date">Published on {{ current_date }}</p>
+    </div>
+    <div class="post-body">
+        {{ content|safe }}
+    </div>
+    <a href="{{ url_for('main.index') }}" class="back-button">← Back to Home</a>
+</article>
+{% endblock %}
