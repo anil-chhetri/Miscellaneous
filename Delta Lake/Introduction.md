@@ -1,10 +1,10 @@
-## introduction of Delta Lake.
+# Introduction of Delta Lake.
 
 Delta lake is an open format storage layer that delivers reliability, security and performance on data lake - for both streaming and batch operations. By replacing data silos with a single home for structured, semi structured and unstructured data. *Delta lake is foundation of a cost-effective, highly scalable lakehouse.*
 
 Delta lake is a data storage and management layer for data lake that enables to scale insights throughout organizations with a reliable single source of truth for all data workloads both batch and streaming. *Delta lake increase productivity by optimizing for speed at scale with performance features like advanced indexing and schema enforcement.*
 
-### **What does Delta Offer Technically?**
+## **What does Delta Offer Technically?**
 - ACID Transactions
     - Atomicity, consistency, isolation, durability.
     - Ensure data integrity
@@ -17,7 +17,7 @@ Delta lake is a data storage and management layer for data lake that enables to 
     - streaming source and sink
 
 
-### **How does delta table works?**
+## **How does delta table works?**
 
 - Table as a directory
     - Optionally this is registered to the metastore or catalog.
@@ -29,7 +29,7 @@ Delta lake is a data storage and management layer for data lake that enables to 
     - json files.
     
 
-### **Strategies for optimizations**
+## **Strategies for optimizations**
 - Bloom Filter Index
     - Data Structure
     - Skipping on arbitrary text
