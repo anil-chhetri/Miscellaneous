@@ -26,7 +26,7 @@ there are two ways to see graphical plan that will be used by query to generate 
 - **Estimated Execution Plan**: This type of execution plan is just a guess by the query processor about how specific steps that are to be involved while returning the results. It is often generated before the query has been executed.
 - **Actual Execution Plan**: This type of plan is generated after query has been executed. It shows the actual operations and steps involved while executing the query. This may or may not differ from the Estimated Execution Plan.
 
-![Execution plans](https://github.com/anil-chhetri/Miscellaneous/blob/main/SQL%20Server/images/Execution%20Plans.PNG)
+![Execution plans](https://raw.githubusercontent.com/anil-chhetri/Miscellaneous/main/SQL%20Server/images/Execution%20Plans.PNG)
 
 Each node in the tree structure is represented as an icon that specifies a logical or physical operator(eg: Index scan, Hash Aggregate) The first icon is a language element called the Result operator, which represent the select statement and is usually the root element in the plan.
 The query optimizer builds an execution plan and choose which operation may read records from the database(index scan), alternatively, it may read records from another operator, which reads records from the Index scan operator. Each node in the plan is related to a parent node, connected with arrowheads, the width of arrowhead is proportional to the number of row being transferred.
@@ -35,7 +35,7 @@ Basically, in this plan, the Index scan operator is reading all 19614 rows from 
 
 The following information is obtained by hovering the mouse tip over the operator(index scan.)
 
-![tooltip information](https://github.com/anil-chhetri/Miscellaneous/blob/main/SQL%20Server/images/Execution%20plan%20tooltip.PNG)
+![tooltip information](https://raw.githubusercontent.com/anil-chhetri/Miscellaneous/main/SQL%20Server/images/Execution%20plan%20tooltip.PNG)
 
 ### XML Plan
 
@@ -43,5 +43,5 @@ Once you have displayed a graphical plan, you can also easily display it in XML 
 anywhere on the execution plan window to display a pop-up menu
 
 
-![sql query](https://github.com/anil-chhetri/Miscellaneous/blob/main/SQL%20Server/images/Execution%20plans%20options.PNG)
+![sql query](https://raw.githubusercontent.com/anil-chhetri/Miscellaneous/main/SQL%20Server/images/Execution%20plans%20options.PNG)
 
