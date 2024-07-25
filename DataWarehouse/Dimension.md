@@ -1,3 +1,5 @@
+# Common Datawarehouse terminology
+
 ## Dimension 
 
 - Dimension tables contains descriptive fields.
