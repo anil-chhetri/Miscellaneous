@@ -43,5 +43,5 @@ Once you have displayed a graphical plan, you can also easily display it in XML 
 anywhere on the execution plan window to display a pop-up menu
 
 
-![sql query](images/Execution%20plans%20options.PNG)
+![sql query](https://github.com/anil-chhetri/Miscellaneous/blob/main/SQL%20Server/images/Execution%20plans%20options.PNG)
 
