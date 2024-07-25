@@ -1,14 +1,18 @@
+# Execution Plans
+
+## setting up your playground in docker
+
 ```docker
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 ```
-### Execution Plans
 
+## what is Execution plans? 
 An execution plan in SQL Server is a simple graphical 
 representation of the operations that the query optimizer generates to calculate the most efficient way to return a set of results.
 
 Once a query is executed, the query processing engine quickly generates multiple execution plans and selects the one which returns the results with the best performance. 
 
-#### Execution Plans Formats
+## Execution Plans Formats
 
 SQL Server can output the execution plan in three different ways.
     - XML Plan
@@ -16,7 +20,7 @@ SQL Server can output the execution plan in three different ways.
     - Graphical Plan
 The one you choose will depends on the level of detail you want to see, and on the methods used to capture or view that plan.
 
-#### Graphical Plan
+### Graphical Plan
 there are two ways to see graphical plan that will be used by query to generate result.
 
 - **Estimated Execution Plan**: This type of execution plan is just a guess by the query processor about how specific steps that are to be involved while returning the results. It is often generated before the query has been executed.
@@ -33,7 +37,7 @@ The following information is obtained by hovering the mouse tip over the operato
 
 ![tooltip information](images/Execution%20plan%20tooltip.PNG)
 
-#### XML Plan
+### XML Plan
 
 Once you have displayed a graphical plan, you can also easily display it in XML format. Simply right click
 anywhere on the execution plan window to display a pop-up menu
