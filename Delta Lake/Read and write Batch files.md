@@ -1,18 +1,5 @@
-- [Table batch reads and writes](#table-batch-reads-and-writes)
-  - [What is table in databricks:](#what-is-table-in-databricks)
-  - [Create a table.](#create-a-table)
-  - [Control Data Location of delta tables.](#control-data-location-of-delta-tables)
-  - [Reading a table](#reading-a-table)
-  - [Time Travel](#time-travel)
-  - [Data retention](#data-retention)
-  - [Schema Validation](#schema-validation)
-  - [Schema Evolution:](#schema-evolution)
+# Delta Table batch reads and writes
 
-<hr>
-<br />
-<br />
-
-# Table batch reads and writes
 
 Delta lake supports most of the options provided by Apache Spark Data Frame read and writes apis for performing batch reads and writes on tables.
 
