@@ -118,6 +118,18 @@ from transformed
 ```
 
 
+### Comparison Table
+
+| Feature                | Incremental Models                        | Ephemeral Models                        |
+|------------------------|-------------------------------------------|-----------------------------------------|
+| Purpose                | Efficiently process large datasets        | Create intermediate transformations     |
+| Storage                | Materialized in the warehouse             | Not stored in the warehouse             |
+| Performance            | Faster for large, frequently updated data | Reduces complexity, no impact on storage|
+| Configuration          | `{{ config(materialized='incremental') }}`| `{{ config(materialized='ephemeral') }}`|
+| Use Case               | Large datasets with frequent updates      | Modular, intermediate transformations   |
+
+
+
 ### Best Practices for Materializations
 - **Start Simple**: Begin with views for simplicity and adjust to tables or incremental models as performance or cost requirements dictate.
 - **Scope Configurations**: Configure materializations at the folder level in `dbt_project.yml` to keep your code DRY (Don't Repeat Yourself).
