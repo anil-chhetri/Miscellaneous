@@ -1,0 +1,10 @@
+[build-system]
+requires = ["flet"]
+build-backend = "setuptools.build_meta"
+
+[tool.flet.android]
+app_name       = "YTShortsPlayer"
+package        = "com.example.ytshortsplayer"
+split_per_abi  = true
+min_sdk_version = 21
+target_sdk_version = 35
